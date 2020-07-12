@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Electronic signature form</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <div class="tools">
+      <!-- Select color area -->
+      <div class="tools__color">
+         <p class="tools__color-prefix">Select color: </p>
+         <div class="tools__select-color">
+            <div class="tools__color-box tools--active">
+               <div class="tools__black" data-color="black"></div>
+               <div class="tools__blue" data-color="blue"></div>
+               <div class="tools__green" data-color="green"></div>
+               <div class="tools__red" data-color="red"></div>
+               <div class="tools__orange" data-color="orange"></div>
+               <div class="tools__purple" data-color="purple"></div>
+               <div class="tools__yellow" data-color="yellow"></div>
+            </div>
+         </div>
+      </div>
+      <!-- Select lin width area -->
+      <div class="tools__line-width">
+         <p class="tools__line-width-prefix">Select line width: </p>
+         <div class="tools__select-line-width">
+            <span class="tools__line-in-select-width"></span>
+            <div class="tools__line-width-box tools--active">
+               <div class="tools__1px-width" data-width="1">
+                  <span class="tools__line1"></span>
+               </div>
+               <div class="tools__3px-width" data-width="3">
+                  <span class="tools__line3"></span>
+               </div>
+               <div class="tools__5px-width" data-width="5">
+                  <span class="tools__line5"></span>
+               </div>
+               <div class="tools__7px-width" data-width="7">
+                  <span class="tools__line7"></span>
+               </div>
+               <div class="tools__9px-width" data-width="9">
+                  <span class="tools__line9"></span>
+               </div>
+               <div class="tools__11px-width" data-width="11">
+                  <span class="tools__line11"></span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <canvas></canvas>
+
+   <script src="signature.js"></script>
+</body>
+
+</html>
