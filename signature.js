@@ -43,6 +43,16 @@ const draw = (e) => {
    }
 }
 
+// Function for touch drawing
+const touchDraw = (e) => {
+   let touch = e.touches[0];
+   let mouseEvent = new MouseEvent('mousemove', {
+      clientX: touch.clientX,
+      clientY: touch.clientY
+   });
+   canvas.dispatchEvent(mouseEvent);
+}
+
 const stopDrawing = () => {
    active = !active;
    ctx.beginPath();
@@ -80,8 +90,35 @@ const getWidth = function () {
 }
 getWidth();
 
+// MEDIA QUERY EVENT HANDLER
+const mediaQuery = () => {
+   if (matchMedia) {
+      const mq = window.matchMedia("(max-width: 700px)");
+      mq.addListener(WidthChange);
+      WidthChange(mq);
+   }
+   // media query change
+   function WidthChange(mq) {
+      if (mq.matches) {
+         // window width is up to 700px
+         canvas.width = 300;
+         canvas.height = 200;
+      } else {
+         // window width is greater than 700px
+         canvas.width = 700;
+         canvas.height = 300;
+      }
+   }
+}
+mediaQuery();
+
 canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', stopDrawing);
+
+canvas.addEventListener('touchstart', startDrawing);
+canvas.addEventListener('touchmove', touchDraw);
+canvas.addEventListener('touchend', stopDrawing);
+
 selectColor.addEventListener('click', showColorBox);
 selectLineWidth.addEventListener('click', showLineWidthBox);
