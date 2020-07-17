@@ -21,7 +21,6 @@ const startDrawing = (e) => {
    // Close open boxes (color or line-width) when user clicks on canvas
    colorBox.classList.add('tools--active');
    lineWidthBox.classList.add('tools--active');
-
    active = !active;
    draw(e);
 }
